@@ -59,10 +59,11 @@
             this.elmChBox = new System.Windows.Forms.CheckBox();
             this.iutChBox = new System.Windows.Forms.CheckBox();
             this.systemLogs = new System.Windows.Forms.GroupBox();
+            this.configAdmConsole = new System.Windows.Forms.CheckBox();
             this.configChBox = new System.Windows.Forms.CheckBox();
-            this.nashChBox = new System.Windows.Forms.CheckBox();
-            this.collectButton1 = new System.Windows.Forms.Button();
+            this.collectTrace = new System.Windows.Forms.Button();
             this.statusTextBox = new System.Windows.Forms.TextBox();
+            this.healthLogsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.adBox.SuspendLayout();
             this.cloudBox.SuspendLayout();
@@ -387,8 +388,8 @@
             // 
             // systemLogs
             // 
+            this.systemLogs.Controls.Add(this.configAdmConsole);
             this.systemLogs.Controls.Add(this.configChBox);
-            this.systemLogs.Controls.Add(this.nashChBox);
             this.systemLogs.Location = new System.Drawing.Point(659, 102);
             this.systemLogs.Name = "systemLogs";
             this.systemLogs.Size = new System.Drawing.Size(298, 77);
@@ -397,49 +398,59 @@
             this.systemLogs.Text = "Netwrix Health and Config";
             this.systemLogs.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // configAdmConsole
+            // 
+            this.configAdmConsole.AutoSize = true;
+            this.configAdmConsole.Location = new System.Drawing.Point(6, 47);
+            this.configAdmConsole.Name = "configAdmConsole";
+            this.configAdmConsole.Size = new System.Drawing.Size(166, 20);
+            this.configAdmConsole.TabIndex = 0;
+            this.configAdmConsole.Text = "Administrative Console";
+            this.configAdmConsole.UseVisualStyleBackColor = true;
+            // 
             // configChBox
             // 
             this.configChBox.AutoSize = true;
-            this.configChBox.Location = new System.Drawing.Point(9, 47);
+            this.configChBox.Location = new System.Drawing.Point(6, 21);
             this.configChBox.Name = "configChBox";
             this.configChBox.Size = new System.Drawing.Size(130, 20);
             this.configChBox.TabIndex = 0;
             this.configChBox.Text = "Configuration.xml";
             this.configChBox.UseVisualStyleBackColor = true;
             // 
-            // nashChBox
+            // collectTrace
             // 
-            this.nashChBox.AutoSize = true;
-            this.nashChBox.Location = new System.Drawing.Point(9, 21);
-            this.nashChBox.Name = "nashChBox";
-            this.nashChBox.Size = new System.Drawing.Size(207, 20);
-            this.nashChBox.TabIndex = 0;
-            this.nashChBox.Text = "Netwrix Auditor System Health";
-            this.nashChBox.UseVisualStyleBackColor = true;
-            // 
-            // collectButton1
-            // 
-            this.collectButton1.Location = new System.Drawing.Point(659, 398);
-            this.collectButton1.Name = "collectButton1";
-            this.collectButton1.Size = new System.Drawing.Size(294, 69);
-            this.collectButton1.TabIndex = 5;
-            this.collectButton1.Text = "Collect";
-            this.collectButton1.UseVisualStyleBackColor = true;
+            this.collectTrace.Location = new System.Drawing.Point(659, 185);
+            this.collectTrace.Name = "collectTrace";
+            this.collectTrace.Size = new System.Drawing.Size(294, 69);
+            this.collectTrace.TabIndex = 5;
+            this.collectTrace.Text = "Collect Trace Logs";
+            this.collectTrace.UseVisualStyleBackColor = true;
             // 
             // statusTextBox
             // 
-            this.statusTextBox.Location = new System.Drawing.Point(665, 199);
+            this.statusTextBox.Location = new System.Drawing.Point(659, 338);
             this.statusTextBox.Name = "statusTextBox";
-            this.statusTextBox.Size = new System.Drawing.Size(291, 22);
+            this.statusTextBox.Size = new System.Drawing.Size(294, 22);
             this.statusTextBox.TabIndex = 6;
+            // 
+            // healthLogsButton
+            // 
+            this.healthLogsButton.Location = new System.Drawing.Point(659, 263);
+            this.healthLogsButton.Name = "healthLogsButton";
+            this.healthLogsButton.Size = new System.Drawing.Size(294, 69);
+            this.healthLogsButton.TabIndex = 5;
+            this.healthLogsButton.Text = "Collect Health Logs";
+            this.healthLogsButton.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1119, 491);
+            this.ClientSize = new System.Drawing.Size(969, 491);
             this.Controls.Add(this.statusTextBox);
-            this.Controls.Add(this.collectButton1);
+            this.Controls.Add(this.healthLogsButton);
+            this.Controls.Add(this.collectTrace);
             this.Controls.Add(this.microsoftBox);
             this.Controls.Add(this.cloudBox);
             this.Controls.Add(this.toolsBox);
@@ -500,11 +511,12 @@
         private System.Windows.Forms.CheckBox penChBox;
         private System.Windows.Forms.GroupBox systemLogs;
         private System.Windows.Forms.CheckBox configChBox;
-        private System.Windows.Forms.CheckBox nashChBox;
         private System.Windows.Forms.CheckBox vmwareChBox;
         private System.Windows.Forms.CheckBox networkDevicesChBox;
-        private System.Windows.Forms.Button collectButton1;
+        private System.Windows.Forms.Button collectTrace;
         private System.Windows.Forms.TextBox statusTextBox;
+        private System.Windows.Forms.CheckBox configAdmConsole;
+        private System.Windows.Forms.Button healthLogsButton;
     }
 }
 

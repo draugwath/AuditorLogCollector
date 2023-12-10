@@ -30,7 +30,9 @@ namespace AuditorLogCollector
             { "User Activity Video Recording", new [] { @"%Working_Folder%\Logs\User Activity Video Recording" } },
             { "VMWare", new [] { @"%Working_Folder%\Logs\VMware Auditing\Tracing" } },
             { "File Servers", new [] { @"%Working_Folder%\Logs\DataCollectionCore\NwFileStorageSvc" } },
-            { "Windows Server", new [] { @"%Working_Folder%\Logs\Windows Server Auditing", @"%Working_Folder%\Logs\AuditCore\WSA" } }
+            { "Windows Server", new [] { @"%Working_Folder%\Logs\Windows Server Auditing", @"%Working_Folder%\Logs\AuditCore\WSA" } },
+            { "Configuration.xml", new [] { @"%Working_Folder%\AuditCore\ConfigServer"} },
+            { "Administrative Console", new [] { @"%Working_Folder%\Logs\Administrative Console"} }
         };
 
         public static string WorkingFolder { get; private set; }

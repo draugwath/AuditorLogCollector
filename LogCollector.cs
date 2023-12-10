@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -6,7 +7,7 @@ namespace AuditorLogCollector
 {
     public static class LogCollector
     {
-        public static void CollectLogs(CheckedListBox.CheckedItemCollection selectedModules, TextBox statusTextBox)
+        public static void CollectLogs(List<string> selectedModules, TextBox statusTextBox)
         {
             if (!CollectorsPaths.FetchWorkingFolderPath())
             {
@@ -15,13 +16,13 @@ namespace AuditorLogCollector
             }
 
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            string logsDestination = Path.Combine(desktopPath, "CollectedLogs");
+            string logsDestination = Path.Combine(desktopPath, "Netwrix Auditor Logs");
             Directory.CreateDirectory(logsDestination);
 
             foreach (var module in selectedModules)
             {
-                string moduleName = module.ToString();
-                string[] logPaths = CollectorsPaths.GetPathsForModule(moduleName);
+                Logger.Log($"Processing module: {module}");
+                string[] logPaths = CollectorsPaths.GetPathsForModule(module);
 
                 if (logPaths != null)
                 {
@@ -30,9 +31,10 @@ namespace AuditorLogCollector
                         string fullPath = Path.GetFullPath(logPath);
                         if (Directory.Exists(fullPath))
                         {
-                            string destination = Path.Combine(logsDestination, moduleName);
-                            Directory.CreateDirectory(destination);
-                            CopyDirectory(fullPath, destination);
+                            // Create a unique destination for each log path
+                            string destinationSubDir = Path.Combine(Path.Combine(logsDestination, module), Path.GetFileName(fullPath));
+                            Directory.CreateDirectory(destinationSubDir);
+                            CopyDirectory(fullPath, destinationSubDir);
                         }
                     }
                 }
@@ -53,18 +55,37 @@ namespace AuditorLogCollector
             {
                 Directory.CreateDirectory(destinationDir);
             }
+            else
+            {
+                ClearDirectory(destinationDir);
+            }
 
             FileInfo[] files = dir.GetFiles();
             foreach (FileInfo file in files)
             {
                 string tempPath = Path.Combine(destinationDir, file.Name);
-                file.CopyTo(tempPath, false);
+                file.CopyTo(tempPath, true); // true to overwrite existing files
             }
 
             foreach (DirectoryInfo subdir in dirs)
             {
                 string tempPath = Path.Combine(destinationDir, subdir.Name);
                 CopyDirectory(subdir.FullName, tempPath);
+            }
+        }
+
+        private static void ClearDirectory(string path)
+        {
+            DirectoryInfo dir = new DirectoryInfo(path);
+
+            foreach (FileInfo file in dir.GetFiles())
+            {
+                file.Delete();
+            }
+
+            foreach (DirectoryInfo subdir in dir.GetDirectories())
+            {
+                subdir.Delete(true);
             }
         }
     }

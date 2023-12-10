@@ -13,8 +13,9 @@ namespace AuditorLogCollector
                 {
                     if (key != null)
                     {
-                        object value = key.GetValue("DataPathOverride");
-                        return value != null ? value.ToString() : "DataPathOverride not set in registry.";
+                        // Accessing the default (unnamed) value
+                        object value = key.GetValue(null); // or key.GetValue("")
+                        return value != null ? value.ToString() : "Default value not set in registry.";
                     }
                     return "Registry key not found.";
                 }
