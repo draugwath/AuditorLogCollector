@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace AuditorLogCollector
 {
-    public partial class Form1 : Form
+    public partial class NetwrixAuditorLogCollector : Form
     {
-        public Form1()
+        public NetwrixAuditorLogCollector()
         {
             InitializeComponent();
 

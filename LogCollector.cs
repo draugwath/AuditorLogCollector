@@ -7,7 +7,7 @@ namespace AuditorLogCollector
 {
     public static class LogCollector
     {
-        public static void CollectLogs(List<string> selectedModules, Form1 form)
+        public static void CollectLogs(List<string> selectedModules, NetwrixAuditorLogCollector form)
         {
             if (!CollectorsPaths.FetchWorkingFolderPath())
             {

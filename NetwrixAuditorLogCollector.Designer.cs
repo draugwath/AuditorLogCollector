@@ -1,6 +1,6 @@
 ﻿namespace AuditorLogCollector
 {
-    partial class Form1
+    partial class NetwrixAuditorLogCollector
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NetwrixAuditorLogCollector));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.adBox = new System.Windows.Forms.GroupBox();
             this.adfsChBox = new System.Windows.Forms.CheckBox();
@@ -463,8 +463,8 @@
             this.Controls.Add(this.microsoftServersBox);
             this.Controls.Add(this.adBox);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Netwrix Auditor Log Collector";
+            this.Text = "Netwrix Auditor Log Collector";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.adBox.ResumeLayout(false);
             this.adBox.PerformLayout();

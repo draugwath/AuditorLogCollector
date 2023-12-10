@@ -47,16 +47,16 @@
     <Compile Include="LogCollector.cs" />
     <Compile Include="RegistryManager.cs" />
     <Compile Include="CollectorsPaths.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="NetwrixAuditorLogCollector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="NetwrixAuditorLogCollector.Designer.cs">
+      <DependentUpon>NetwrixAuditorLogCollector.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="NetwrixAuditorLogCollector.resx">
+      <DependentUpon>NetwrixAuditorLogCollector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
