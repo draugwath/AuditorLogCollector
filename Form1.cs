@@ -77,7 +77,7 @@ namespace AuditorLogCollector
             if (CollectorsPaths.FetchWorkingFolderPath())
             {
                 Logger.Log($"Working folder path: {CollectorsPaths.WorkingFolder}");
-                LogCollector.CollectLogs(selectedModules, statusTextBox);
+                LogCollector.CollectLogs(selectedModules, this);
             }
             else
             {
@@ -106,7 +106,17 @@ namespace AuditorLogCollector
             }
         }
 
-
+        public void UpdateStatus(string message)
+        {
+            if (statusTextBox.InvokeRequired)
+            {
+                statusTextBox.Invoke(new Action<string>(UpdateStatus), new object[] { message });
+            }
+            else
+            {
+                statusTextBox.AppendText(message + Environment.NewLine);
+            }
+        }
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {

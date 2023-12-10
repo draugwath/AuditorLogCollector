@@ -7,11 +7,11 @@ namespace AuditorLogCollector
 {
     public static class LogCollector
     {
-        public static void CollectLogs(List<string> selectedModules, TextBox statusTextBox)
+        public static void CollectLogs(List<string> selectedModules, Form1 form)
         {
             if (!CollectorsPaths.FetchWorkingFolderPath())
             {
-                statusTextBox.Text = "Failed to fetch working folder path.";
+                form.UpdateStatus("Failed to fetch working folder path.");
                 return;
             }
 
@@ -22,6 +22,7 @@ namespace AuditorLogCollector
             foreach (var module in selectedModules)
             {
                 Logger.Log($"Processing module: {module}");
+                form.UpdateStatus($"Processing module: {module}");
                 string[] logPaths = CollectorsPaths.GetPathsForModule(module);
 
                 if (logPaths != null)
@@ -34,13 +35,14 @@ namespace AuditorLogCollector
                             // Create a unique destination for each log path
                             string destinationSubDir = Path.Combine(Path.Combine(logsDestination, module), Path.GetFileName(fullPath));
                             Directory.CreateDirectory(destinationSubDir);
+                            form.UpdateStatus($"Copying logs from {fullPath} to {destinationSubDir}");
                             CopyDirectory(fullPath, destinationSubDir);
                         }
                     }
                 }
             }
 
-            statusTextBox.Text = "Log collection complete.";
+            form.UpdateStatus("Log collection complete.");
         }
 
         private static void CopyDirectory(string sourceDir, string destinationDir)

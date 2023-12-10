@@ -62,8 +62,8 @@
             this.configAdmConsole = new System.Windows.Forms.CheckBox();
             this.configChBox = new System.Windows.Forms.CheckBox();
             this.collectTrace = new System.Windows.Forms.Button();
-            this.statusTextBox = new System.Windows.Forms.TextBox();
             this.healthLogsButton = new System.Windows.Forms.Button();
+            this.statusTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.adBox.SuspendLayout();
             this.cloudBox.SuspendLayout();
@@ -427,13 +427,6 @@
             this.collectTrace.Text = "Collect Trace Logs";
             this.collectTrace.UseVisualStyleBackColor = true;
             // 
-            // statusTextBox
-            // 
-            this.statusTextBox.Location = new System.Drawing.Point(659, 338);
-            this.statusTextBox.Name = "statusTextBox";
-            this.statusTextBox.Size = new System.Drawing.Size(294, 22);
-            this.statusTextBox.TabIndex = 6;
-            // 
             // healthLogsButton
             // 
             this.healthLogsButton.Location = new System.Drawing.Point(659, 263);
@@ -442,6 +435,17 @@
             this.healthLogsButton.TabIndex = 5;
             this.healthLogsButton.Text = "Collect Health Logs";
             this.healthLogsButton.UseVisualStyleBackColor = true;
+            // 
+            // statusTextBox
+            // 
+            this.statusTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.statusTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.statusTextBox.Location = new System.Drawing.Point(659, 338);
+            this.statusTextBox.Multiline = true;
+            this.statusTextBox.Name = "statusTextBox";
+            this.statusTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.statusTextBox.Size = new System.Drawing.Size(294, 129);
+            this.statusTextBox.TabIndex = 6;
             // 
             // Form1
             // 
@@ -514,9 +518,9 @@
         private System.Windows.Forms.CheckBox vmwareChBox;
         private System.Windows.Forms.CheckBox networkDevicesChBox;
         private System.Windows.Forms.Button collectTrace;
-        private System.Windows.Forms.TextBox statusTextBox;
         private System.Windows.Forms.CheckBox configAdmConsole;
         private System.Windows.Forms.Button healthLogsButton;
+        private System.Windows.Forms.TextBox statusTextBox;
     }
 }
 
